@@ -15,16 +15,11 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        //
-        if( Auth::check() ){
-
-
-            $companies = Company::where('user_id', Auth::user()->id)->get();
-           // $companies = Company::all();
-
-             return view('companies.index', ['companies'=> $companies]);
-        }
-        return view('auth.login');
+        //dd('test');
+        $companies = Company::all();
+        // $companies = Company::all();
+        return view('companies.index', ['companies'=> $companies]);
+        // return view('companies.index')->with('companies', $companies);
     }
 
     /**
@@ -34,7 +29,6 @@ class CompaniesController extends Controller
      */
     public function create()
     {
-        //
 
         return view('companies.create');
     }
@@ -53,7 +47,7 @@ class CompaniesController extends Controller
             $company = Company::create([
                 'name' => $request->input('name'),
                 'description' => $request->input('description'),
-                'user_id' => Auth::user()->id
+
             ]);
 
 
@@ -92,10 +86,11 @@ class CompaniesController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        if(Auth::user()->role_id == 1){
         $company = Company::find($company->id);
 
         return view('companies.edit', ['company'=>$company]);
+        }
     }
 
     /**
@@ -109,7 +104,7 @@ class CompaniesController extends Controller
     {
 
       //save data
-
+      if(Auth::user()->role_id == 1){
       $companyUpdate = Company::where('id', $company->id)
                                 ->update([
                                         'name'=> $request->input('name'),
@@ -122,6 +117,7 @@ class CompaniesController extends Controller
       }
       //redirect
       return back()->withInput();
+    }
 
 
 
@@ -136,7 +132,7 @@ class CompaniesController extends Controller
     public function destroy(Company $company)
     {
         //
-
+        if(Auth::user()->role_id == 1){
         $findCompany = Company::find( $company->id);
 		if($findCompany->delete()){
 
@@ -148,5 +144,6 @@ class CompaniesController extends Controller
         return back()->withInput()->with('error' , 'Company could not be deleted');
 
 
+        }
     }
 }

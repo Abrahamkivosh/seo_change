@@ -15,12 +15,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email', 
+        'name',
+        'email',
         'password',
         'first_name',
         'middle_name',
         'last_name',
+        'phone',
         'city',
         'role_id'
     ];
@@ -34,16 +35,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-  
-    
+
+
     public function role(){
 		return $this->belongsTo('App\Role');
     }
 
-    public function companies(){
-		return $this->hasMany('App\Company');
-    }
-    
+
+
 
     public function tasks()
     {

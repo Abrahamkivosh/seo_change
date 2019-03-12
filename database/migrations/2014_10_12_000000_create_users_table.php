@@ -19,13 +19,14 @@ class CreateUsersTable extends Migration
                 $table->increments('id');
                 $table->string('name');
                 $table->string('email')->unique();
+                $table->string('phone')->nullable();
                 $table->string('password');
                 $table->string('first_name')->nullable();
                 $table->string('middle_name')->nullable();
                 $table->string('last_name')->nullable();
+                $table->string('coverimage')->nullable()->default('coverimage.jpg');
                 $table->string('city')->nullable();
                 $table->integer('role_id')->unsigned()->default(3);
-
                 $table->rememberToken();
                 $table->timestamps();
 

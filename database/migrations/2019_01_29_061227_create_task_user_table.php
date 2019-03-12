@@ -15,10 +15,9 @@ class CreateTaskUserTable extends Migration
             $table->increments('id');
 
             $table->integer('task_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-
+            $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('task_id')->references('id')->on('tasks');
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
             $table->timestamps();
         });
     }

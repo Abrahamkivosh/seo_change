@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
 
@@ -17,7 +17,7 @@
 
                             <div class="form-group">
                                 <label for="company-name">Name<span class="required">*</span></label>
-                                <input   placeholder="Enter name"  
+                                <input   placeholder="Enter name"
                                           id="company-name"
                                           required
                                           name="name"
@@ -30,8 +30,8 @@
 
                             <div class="form-group">
                                 <label for="company-content">Description</label>
-                                <textarea placeholder="Enter description" 
-                                          style="resize: vertical" 
+                                <textarea placeholder="Enter description"
+                                          style="resize: vertical"
                                           id="company-content"
                                           name="description"
                                           rows="5" spellcheck="false"
@@ -43,7 +43,7 @@
                                        value="Submit"/>
                             </div>
                         </form>
-   
+
 
       </div>
 </div>
@@ -60,7 +60,7 @@
               <li><a href="/companies/{{ $company->id }}"><i class="fa fa-building-o" aria-hidden="true"></i>
                View companies</a></li>
               <li><a href="/companies"><i class="fa fa-building" aria-hidden="true"></i> All companies</a></li>
-              
+
             </ol>
           </div>
 

@@ -5,45 +5,45 @@
 
 
 <div class="row col-md-9 col-lg-9 col-sm-9 pull-left " style="background: white;">
-<h1>Update company </h1>
+<h1>Edit your project </h1>
 
       <!-- Example row of columns -->
       <div class="row  col-md-12 col-lg-12 col-sm-12" >
 
-      <form method="post" action="{{ route('companies.update',[$company->id]) }}">
+      <form method="post" action="{{ route('projects.update',[$project->id]) }}">
                             {{ csrf_field() }}
 
                             <input type="hidden" name="_method" value="put">
 
                             <div class="form-group">
-                                <label for="company-name">Name<span class="required">*</span></label>
-                                <input   placeholder="Enter name"  
-                                          id="company-name"
+                                <label for="project-name">Name<span class="required">*</span></label>
+                                <input   placeholder="Enter name"
+                                          id="project-name"
                                           required
                                           name="name"
                                           spellcheck="false"
                                           class="form-control"
-                                          value="{{ $company->name }}"
+                                          value="{{ $project->name }}"
                                            />
                             </div>
 
 
                             <div class="form-group">
-                                <label for="company-content">Description</label>
-                                <textarea placeholder="Enter description" 
-                                          style="resize: vertical" 
-                                          id="company-content"
-                                          name="description"
-                                          rows="5" spellcheck="false"
-                                          class="form-control autosize-target text-left">
-                                          {{ $company->description }}</textarea>
-                            </div>
+                                    <label>Category</label>
+                                    <select name= "category" class="form-control">
+
+                                    <option value="Website Hosting">Website Hosting</option>
+                                    <option value="SEO">SEO</option>
+                                    <option value="Website maintainance">Website maintainance</option>
+                                    <option value="Others">Others</option>
+                                    </select>
+                                </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary"
                                        value="Submit"/>
                             </div>
                         </form>
-   
+
 
       </div>
 </div>
@@ -57,16 +57,16 @@
           <div class="sidebar-module">
             <h4>Actions</h4>
             <ol class="list-unstyled">
-              <li><a href="/companies/{{ $company->id }}"><i class="fa fa-building-o" aria-hidden="true"></i> View companies</a></li>
-              <li><a href="/companies"><i class="fa fa-building" aria-hidden="true"></i> All companies</a></li>
-              
+              <li><a href="/projects/{{ $project->id }}"><i class="fa fa-building-o" aria-hidden="true"></i> View projects</a></li>
+              <li><a href="/projects"><i class="fa fa-building" aria-hidden="true"></i> All projects</a></li>
+
             </ol>
           </div>
 
           <!--<div class="sidebar-module">
             <h4>Members</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
+              <li><a href="#">{{ date('M Y') }}</a></li>
             </ol>
           </div> -->
         </div>

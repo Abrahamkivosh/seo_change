@@ -14,12 +14,14 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->longText('description')->nullable();
-            $table->integer('company_id')->unsigned();
+            $table->string('website')->nullable();
+            $table->string('category')->nullable();
+            $table->string('file')->nullable();
+            $table->integer('status')->unsigned()->default(0);
             $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('days')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('company_id')->references('id')->on('companies');
+            $table->integer('company_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

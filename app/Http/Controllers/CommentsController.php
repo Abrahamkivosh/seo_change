@@ -47,7 +47,7 @@ class CommentsController extends Controller
                 'url' => $request->input('url'),
                 'commentable_type' => $request->input('commentable_type'),
                 'commentable_id' => $request->input('commentable_id'),
-                'user_id' => Auth::user()->id
+                'user_id' => Auth::user()->id,
             ]);
 
 
@@ -56,7 +56,7 @@ class CommentsController extends Controller
             }
 
         }
-        
+
             return back()->withInput()->with('errors', 'Error creating new comment');
 
     }

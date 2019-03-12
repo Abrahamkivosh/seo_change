@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
 
 
-     
+
      <div class="row col-md-9 col-lg-9 col-sm-9 pull-left ">
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
@@ -40,14 +40,14 @@
               <li><a href="/projects/create/{{ $company->id }}">Add Project</a></li>
               <li><a href="/companies">My  Companies</a></li>
               <li><a href="/company/create">Create new Company</a></li>
-            
+
             <br/>
-            
-            
+
+
               <li>
 
-                  
-              <a   
+
+              <a
               href="#"
                   onclick="
                   var result = confirm('Are you sure you wish to delete this Company?');
@@ -60,15 +60,15 @@
                   Delete
               </a>
 
-              <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}" 
+              <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}"
                 method="POST" style="display: none;">
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
               </form>
 
- 
-              
-              
+
+
+
               </li>
 
               <!-- <li><a href="#">Add new member</a></li> -->

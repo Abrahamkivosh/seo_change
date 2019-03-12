@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Task;
-use Illuminate\Http\Request;
+use App\Admin;
+use App\Project;
+use App\User;
+use App\Company;
+use App\ProjectUser;
 
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Http\Request;
 class TasksController extends Controller
 {
     /**

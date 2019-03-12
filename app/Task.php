@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
+    //protected $guarded = ['price'];
     //
     protected $fillable = [
         'name',
         'project_id',
         'user_id',
         'days',
-        'hours',
+        'price',
         'company_id'
     ];
 

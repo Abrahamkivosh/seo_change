@@ -13,5 +13,5 @@ class TaskUser extends Model
     ];
 
 
-    
+
 }

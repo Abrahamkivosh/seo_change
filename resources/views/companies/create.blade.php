@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
 
 
 
-     
+
      <div class="row col-md-9 col-lg-9 col-sm-9 pull-left " style="background: white;">
     <h1>Create new company </h1>
 
@@ -17,7 +17,7 @@
 
                             <div class="form-group">
                                 <label for="company-name">Name<span class="required">*</span></label>
-                                <input   placeholder="Enter name"  
+                                <input   placeholder="Enter name"
                                           id="company-name"
                                           required
                                           name="name"
@@ -29,14 +29,14 @@
 
                             <div class="form-group">
                                 <label for="company-content">Description</label>
-                                <textarea placeholder="Enter description" 
-                                          style="resize: vertical" 
+                                <textarea placeholder="Enter description"
+                                          style="resize: vertical"
                                           id="company-content"
                                           name="description"
                                           rows="5" spellcheck="false"
                                           class="form-control autosize-target text-left">
 
-                                          
+
                                           </textarea>
                             </div>
                             <div class="form-group">
@@ -44,7 +44,7 @@
                                        value="Submit"/>
                             </div>
                         </form>
-   
+
 
       </div>
 </div>
@@ -59,7 +59,7 @@
             <h4>Actions</h4>
             <ol class="list-unstyled">
               <li><a href="/companies"> <i class="fa fa-building-o" aria-hidden="true"></i> My companies</a></li>
-              
+
             </ol>
           </div>
 

@@ -9,10 +9,13 @@ class Project extends Model
     //
     protected $fillable = [
         'name',
-        'description',
+        'website',
+        'status',
+        'category',
+        'file',
         'company_id',
         'user_id',
-        'days',
+
 
     ];
 
@@ -21,7 +24,11 @@ class Project extends Model
 		return $this->belongsToMany('App\User');
     }
 
-    
+    public function admins()
+    {
+        return $this->belongsToMany('App\Admin');
+    }
+
 
     public function company(){
 		return $this->belongsTo('App\Company');
