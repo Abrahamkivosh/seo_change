@@ -13,8 +13,7 @@
         <p class="lead">PROJECT CATEGORY : {{ $project->category }}</p>
         <p class="lead">WEBSITE : {{ $project->website }}</p>
         <p class=" left-box">
-             <a class=" btn btn-primary btn-outline-warning" href="download/$project->file "
-                download="{{ $project->file }}">
+             <a class=" btn btn-primary btn-outline-warning" href="{{ route('projectdownload',$project->id) }} ">
 
                  Download project
                 </a> </p>

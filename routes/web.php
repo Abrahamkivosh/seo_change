@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
     Route::resource('companies', 'CompaniesController');
+    Route::get('/projects/{{ id }}', 'ProjectsController@download')->name('projectdownload');
 
     Route::get('projects/create/{company_id?}', 'ProjectsController@create');
     Route::post('/projects/adduser', 'ProjectsController@adduser')->name('projects.adduser');

@@ -8,7 +8,7 @@ use App\ProjectUser;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Storage ;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectsController extends Controller
@@ -140,8 +140,13 @@ class ProjectsController extends Controller
              ]);
 
              if($project){
-                 return redirect()->route('clients.projects.show', ['project'=> $project->id])
-                 ->with('success' , 'project created successfully');
+                if (Auth::user()->role_id ==  1  ) {
+                    //dd($project);
+                    return view('admins.home',['project',$project->id])->with('project' , $project->id);
+                    return redirect()->route('projects.store')->with('project' , $project->id);
+                }
+
+                 return view('clients.projects.show')->with('project' , $project->id);
              }
 
              return back()->withInput()->with('errors', 'Error creating new project');
@@ -232,12 +237,25 @@ class ProjectsController extends Controller
          if($findproject->delete()){
 
              //redirect
+             if(Auth::user()->role_id == 1){
+                return redirect()->route('projects.index')
+                ->with('success' , 'project deleted successfully');
+             }
              return redirect()->route('clients.projects.index')
              ->with('success' , 'project deleted successfully');
+
          }
 
          return back()->withInput()->with('error' , 'project could not be deleted');
 
+
+     }
+
+     public function download(project $project){
+         $dl = Project::find($project->id);
+
+         $pathToFile = storage_path('app/path(public/public/projects/' . $dl->file);
+         return response()->download($pathToFile );
 
      }
 }
